@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Tahoma", monospace;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+#main-doc {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem 0 1rem;
+  font-size: 0.8rem;
+}
+
+#navbar {
+  width: 100%;
+  max-width: 100%;
+  height: 250px;
+  font-size: 0.8rem;
+  border-bottom: 2px solid black;
+}
+
+#navbar > header {
+  height: 70px;
+  max-height: 70px;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+#navbar h1 {
+  margin: 0;
+}
+
+#navbar p {
+  margin: 0;
+  padding-top: 5px;
+}
+
+#navbar > ul {
+  margin: 0;
+  height: 180px;
+  overflow: scroll;
+  padding: 0;
+}
+
+#navbar > ul > li {
+  border-bottom: 1px solid black;
+  list-style-type: none;
+  padding: 10px;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-section:not(section:first-of-type) {
+  margin: 3rem auto;
+}
+
+.main-section:first-of-type {
+  margin: 2rem auto 3rem auto;
+}
+
+.main-section > header {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.main-section a {
+  text-decoration: none;
+  color: #fa7070;
+}
+
+.main-section a:before,
+.main-section a:after {
+  text-decoration: none;
+  color: #fa7070;
+}
+
+code {
+  display: block;
+  background-color: #c6ebc5;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+code > span {
+  display: block;
+}
+
+#code_indent {
+  display: block;
+  text-indent: 25px;
+}
+
+#code_in_text {
+  font-family: monospace;
+  background-color: #c6ebc5;
+  border-radius: 3px;
+}
+
+blockquote > p {
+  background-color: #eeeeee;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@media (min-width: 769px) {
+  #navbar {
+    position: fixed;
+    width: 200px;
+    max-width: 200px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: scroll;
+    border-right: 1px solid black;
+    border-bottom: unset;
+  }
+
+  #navbar > header {
+    height: 20%;
+    max-height: 20%;
+    text-align: unset;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+  }
+
+  #navbar > ul {
+    height: 100%;
+  }
+
+  #navbar > ul > li {
+    list-style-type: none;
+    padding: 13px;
+    border-bottom: 1px solid black;
+  }
+
+  #main-doc {
+    position: relative;
+    left: 200px;
+    width: calc(100% - 200px);
+    max-width: calc(100% - 200px);
+    padding: 0 2rem;
+  }
+
+  .main-section {
+    width: 700px;
+    max-width: 700px;
+  }
+}

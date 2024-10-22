@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <h1>Rust Documentation</h1>
+        <p>Basic rust tutorial</p>
+      </header>
+      <ul>
+        <li><a class="nav-link" href="#Getting_Started">Getting Started</a></li>
+        <li><a class="nav-link" href="#Installing_Rust">Installing Rust</a></li>
+        <li><a class="nav-link" href="#Hello_World">Hello World</a></li>
+        <li><a class="nav-link" href="#Variable_Bindings">Variable Bindings</a></li>
+        <li><a class="nav-link" href="#Patterns">Patterns</a></li>
+        <li><a class="nav-link" href="#Functions">Functions</a></li>
+        <li><a class="nav-link" href="#If">If</a></li>
+        <li><a class="nav-link" href="#For_Loop">For Loop</a></li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <div id="content-div">
+      <section class="main-section" id="Getting_Started">
+        <header>Getting Started</header>
+        <p>This first chapter of the book will get us going with Rust and its tooling. First, we’ll install Rust. Then, the classic ‘Hello World’ program. Finally, we’ll talk about Cargo, Rust’s build system and package manager.</p>
+        <p>We’ll be showing off a number of commands using a terminal, and those lines all start with <span id="code_in_text">$</span>. You don't need to type in the <span id="code_in_text">$</span>s, they are there to indicate the start of each command. We’ll see many tutorials and examples around the web that follow this convention: <span id="code_in_text">$</span> for commands run as our regular user, and <span id="code_in_text">#</span> for commands we should be running as an administrator.</p>
+      </section>
+      <section class="main-section" id="Installing_Rust">
+        <header>Installing Rust</header>
+        <p>The first step to using Rust is to install it. Generally speaking, you’ll need an Internet connection to run the commands in this section, as we’ll be downloading Rust from the Internet.</p>
+        <p>The Rust compiler runs on, and compiles to, a great number of platforms, but is best supported on Linux, Mac, and Windows, on the x86 and x86-64 CPU architecture. There are official builds of the Rust compiler and standard library for these platforms and more. <a href="https://doc.rust-lang.org/nightly/rustc/platform-support.html">For full details on Rust platform support see the website.</a></p>
+        <h3>Installing Rust</h3>
+        <p>All you need to do on Unix systems like Linux and macOS is open a terminal and type this:</p>
+        <code>
+          <span>$ curl https://sh.rustup.rs -sSf | sh</span>
+        </code>
+        <p>It will download a script, and start the installation. If everything goes well, you’ll see this appear:</p>
+        <code>
+          <span>Rust is installed now. Great!</span>
+        </code>
+        <p>Installing on Windows is nearly as easy: download and run <a href="https://win.rustup.rs">rustup-init.exe</a>. It will start the installation in a console and present the above message on success.</p>
+        <p>For other installation options and information, visit the <a href="https://www.rust-lang.org/tools/install">install</a> page of the Rust website.</p>
+        <h3>Uninstalling</h3>
+        <p>Uninstalling Rust is as easy as installing it:</p>
+        <code>
+          <span>$ rustup self uninstall</span>
+        </code>
+      </section>
+      <section class="main-section" id="Hello_World">
+        <header>Hello World</header>
+        <p>Now that you have Rust installed, we'll help you write your first Rust program. It's traditional when learning a new language to write a little program to print the text “Hello, world!” to the screen, and in this section, we'll follow that tradition.</p>
+        <p>The nice thing about starting with such a simple program is that you can quickly verify that your compiler is installed, and that it's working properly. Printing information to the screen is also a pretty common thing to do, so practicing it early on is good.</p>
+        <blockquote>
+          <p>Note: This book assumes basic familiarity with the command line. Rust itself makes no specific demands about your editing, tooling, or where your code lives, so if you prefer an IDE to the command line, that's an option. You may want to check out <a href="https://github.com/oakes/SolidOak">SolidOak</a>, which was built specifically with Rust in mind. There are a number of extensions in development by the community, and the Rust team ships plugins for <a href="https://github.com/rust-lang/rust/blob/master/src/etc/CONFIGS.md">various editors</a>. Configuring your editor or IDE is out of the scope of this tutorial, so check the documentation for your specific setup.</p>
+        </blockquote>
+      </section>
+      <section class="main-section" id="Variable_Bindings">
+        <header>Variable Bindings</header>
+        <p>Virtually every non-'Hello World’ Rust program uses variable bindings. They bind some value to a name, so it can be used later. <span id="code_in_text">let</span> is used to introduce a binding, like this:</p>
+        <code>
+          <span>fn main() {</span>
+          <span id="code_indent">let x = 5;</span>
+          <span>}</span>
+        </code>
+        <p>Putting <span id="code_in_text">fn main() {</span> in each example is a bit tedious, so we’ll leave that out in the future. If you’re following along, make sure to edit your <span id="code_in_text">main()</span> function, rather than leaving it off. Otherwise, you’ll get an error.</p>
+      </section>
+      <section class="main-section" id="Patterns">
+        <header>Patterns</header>
+        <p>In many languages, a variable binding would be called a variable, but Rust’s variable bindings have a few tricks up their sleeves. For example the left-hand side of a <span id="code_in_text">let</span> statement is a ‘<a href="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/patterns.html">pattern</a>’, not a variable name. This means we can do things like:</p>
+        <code>
+          <span>let (x, y) = (1, 2);</span>
+        </code>
+        <p>After this statement is evaluated, <span id="code_in_text">x</span> will be one, and <span id="code_in_text">y</span> will be two. Patterns are really powerful, and have <a href="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/patterns.html">their own section</a> in the book. We don’t need those features for now, so we’ll keep this in the back of our minds as we go forward.</p>
+      </section>
+      <section class="main-section" id="Functions">
+        <header>Functions</header>
+        <p>Every Rust program has at least one function, the <span id="code_in_text">main</span> function:</p>
+        <code>
+          <span>fn main() {</span>
+          <span>}</span>
+        </code>
+        <p>This is the simplest possible function declaration. As we mentioned before, <span id="code_in_text">fn</span> says ‘this is a function’, followed by the name, some parentheses because this function takes no arguments, and then some curly braces to indicate the body. Here’s a function named <span id="code_in_text">foo</span>:</p>
+        <code>
+          <span>fn foo() {</span>
+          <span>}</span>
+        </code>
+        <p>So, what about taking arguments? Here’s a function that prints a number:</p>
+        <code>
+          <span>fn print_number(x: i32) {</span>
+          <span id="code_indent">println!("x is: {}", x);</span>
+          <span>}</span>
+        </code>
+        <p>Here’s a complete program that uses <span id="code_in_text">print_number</span>:</p>
+        <code>
+          <span>fn main() {</span>
+          <span id="code_indent">print_number(5);</span>
+          <span>}<span>
+          <br><br>
+          <span>fn print_number(x: i32) {</span>
+          <span id="code_indent">println!("x is: {}", x);</span>
+          <span>}</span>
+        </code>
+      </section>
+      <section class="main-section" id="If">
+        <header>If</header>
+        <p>Rust’s take on <span id="code_in_text">if</span> is not particularly complex, but it’s much more like the <span id="code_in_text">if</span> you’ll find in a dynamically typed language than in a more traditional systems language. So let’s talk about it, to make sure you grasp the nuances.</p>
+        <p><span id="code_in_text">if</span> is a specific form of a more general concept, the ‘branch’, whose name comes from a branch in a tree: a decision point, where depending on a choice, multiple paths can be taken.</p>
+        <p>In the case of <span id="code_in_text">if</span>, there is one choice that leads down two paths:</p>
+        <code>
+          <span>let x = 5;</span>
+          <br>
+          <span>if x == 5 {</span>
+          <span id="code_indent">println!("x is five!");</span>
+          <span>}</span>
+        </code>
+        <p>If we changed the value of <span id="code_in_text">x</span> to something else, this line would not print. More specifically, if the expression after the <span id="code_in_text">if</span> evaluates to <span id="code_in_text">true</span>, then the block is executed. If it’s <span id="code_in_text">false</span>, then it is not.</p>
+      </section>
+      <section class="main-section" id="For_Loop">
+        <header>For Loop</header>
+        <p>The <span id="code_in_text">for</span> loop is used to loop a particular number of times. Rust’s <span id="code_in_text">for</span> loops work a bit differently than in other systems languages, however. Rust’s <span id="code_in_text">for</span> loop doesn’t look like this “C-style” <span id="code_in_text">for</span> loop:</p>
+        <code>
+          <span>for (x = 0; x < 10; x++) {</span>
+          <span id="code_indent">printf( "%d\n", x );</span>
+          <span>}</span>
+        </code>
+        <p>Instead, it looks like this:</p>
+        <code>
+          <span>for x in 0..10 {</span>
+          <span id="code_indent">println!("{}", x); // x: i32</span>
+          <span>}</span>
+        </code>
+      </section>
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <ul>
+          <li>All the documentation</li>
+          <li>in this page</li>
+          <li>is taken from</li>
+          <li><a href="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html">The Rust Programming Language</a></li>
+          <li>only</li>
+        </ul>
+      </section>
+      </div>
+    </main>
+  </body>
+</html>
